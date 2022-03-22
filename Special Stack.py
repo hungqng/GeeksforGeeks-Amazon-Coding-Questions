@@ -1,65 +1,48 @@
-# Special Stack 
-# https://practice.geeksforgeeks.org/problems/special-stack/1
-# Design a data-structure SpecialStack that supports all the stack operations like push(), pop(), isEmpty(), isFull() 
-# and an additional operation getMin() which should return minimum element from the SpecialStack. 
-# Your task is to complete all the functions, using stack data-Structure.
-
-# Your Task:
-# Since this is a function problem, you don't need to take inputs. You just have to complete 5 functions, push() which takes the stack and an integer x as input and pushes it into the stack; pop() which takes the stack as input and pops out the topmost element from the stack; isEmpty() which takes the stack as input and returns true/false depending upon whether the stack is empty or not; isFull() which takes the stack and the size of the stack as input and returns true/false depending upon whether the stack is full or not (depending upon the
-# given size); getMin() which takes the stack as input and returns the minimum element of the stack. 
-# Note: The output of the code will be the value returned by getMin() function.
-
-# Expected Time Complexity: O(N) for getMin, O(1) for remaining all 4 functions.
-# Expected Auxiliary Space: O(1) for all the 5 functions.
-
-# Constraints:
-# 1 ≤ N ≤ 104
-
-class stack:
- 
-  def __init__(self):
- 
-    self.array = []
-    self.top = -1
-    self.max = 100 
- 
-  # Stack's member method to check
-  # if the stack is empty
-  def isEmpty(self):
- 
-    if self.top == -1:
-      return True
+# Your task is to complete all these function's
+# function should append an element on to the stack
+def push(arr, ele):
+    # Code here
+    arr.append(ele)
+# Function should pop an element from stack
+def pop(arr):
+    # Code here
+    if arr.isEmpty():
+        return "The stack is empty."
     else:
-      return False 
- 
-  # Stack's member method to check
-  # if the stack is full 
-  def isFull(self): 
-     
-    if self.top == self.max - 1:
-      return True
+        return arr.pop()
+# function should return 1/0 or True/False
+def isFull(n, arr):
+    # Code here
+    if len(arr) == n:
+        return True
     else:
-      return False  
- 
-  # Stack's member method to
-  # insert an element to it  
- 
-  def push(self, data):
- 
-    if self.isFull():
-      print('Stack OverFlow')
-      return
+        return False
+# function should return 1/0 or True/False
+def isEmpty(arr):
+    #Code here
+    if arr == []:
+        return True
     else:
-      self.top += 1
-      self.array.append(data)    
- 
-  # Stack's member method to
-  # remove an element from it
-  def pop(self):
- 
-    if self.isEmpty():
-      print('Stack UnderFlow')
-      return
-    else:
-      self.top -= 1
-      return self.array.pop()
+        return False
+# function should return minimum element from the stack
+def getMin(n, arr):
+    # Code here
+    arr.sort()
+    return arr[0]
+#{ 
+#  Driver Code Starts
+if __name__=='__main__':
+    t = int(input())
+    for i in range(t):
+        n = int(input())
+        arr = list(map(int, input().strip().split()))
+        stack = []
+        while(not isEmpty(stack)):
+            pop(stack)
+            
+        for i in range(n):
+            push(stack, arr[i])
+        print(getMin(n, stack))
+# contributed by: Harshit Sidhwa
+
+# } Driver Code Ends
