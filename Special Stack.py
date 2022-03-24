@@ -6,10 +6,12 @@ def push(arr, ele):
 # Function should pop an element from stack
 def pop(arr):
     # Code here
+    last = len(arr) - 1
+    
     if arr.isEmpty():
         return "The stack is empty."
     else:
-        return arr.pop()
+        return arr.remove(last)
 # function should return 1/0 or True/False
 def isFull(n, arr):
     # Code here
@@ -27,8 +29,14 @@ def isEmpty(arr):
 # function should return minimum element from the stack
 def getMin(n, arr):
     # Code here
-    arr.sort()
-    return arr[0]
+    num = arr[0]
+    
+    for i in range(1, len(arr)):
+        if num < arr[i]:
+            continue
+        elif num > arr[i]:
+            num = arr[i]
+    return num
 #{ 
 #  Driver Code Starts
 if __name__=='__main__':
